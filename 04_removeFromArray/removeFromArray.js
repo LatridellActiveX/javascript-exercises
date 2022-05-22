@@ -4,9 +4,9 @@ const removeFromArray = function() {
         //this creates a local array to return eventually from argument 1
         Array1 = Array.from(arguments[0]);
         //this iterates through that local array
-        for(i = 0; i < Array1.length; i++){
+        for(j = 1; j < arguments.length; j++){
             //this iterates through the arguments past the array on argument 1
-            for(j = 1; j < arguments.length; j++){
+            for(i = 0; i < Array1.length; i++){
                 if(arguments[j] === Array1[i]){
                     Array1.splice(i,1);
                 }
@@ -16,5 +16,6 @@ const removeFromArray = function() {
     return Array1;
     
 };
+
 // Do not edit below this line
 module.exports = removeFromArray;
