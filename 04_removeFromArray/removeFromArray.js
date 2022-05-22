@@ -1,21 +1,20 @@
 const removeFromArray = function() {
     var Array1 = [];
     if(arguments.length >= 1){
+        //this creates a local array to return eventually from argument 1
         Array1 = Array.from(arguments[0]);
-        for(i = 1; i < Array1.length; i++){
-            console.log(i);
+        //this iterates through that local array
+        for(i = 0; i < Array1.length; i++){
+            //this iterates through the arguments past the array on argument 1
             for(j = 1; j < arguments.length; j++){
-                
+                if(arguments[j] === Array1[i]){
+                    Array1.splice(i,1);
+                }
             }
         }
-    }else{
-        console.log("There are no arguments in the function");
     }
-
+    return Array1;
+    
 };
-
-removeFromArray([1,2,3,4,5]);
-
-
 // Do not edit below this line
-//module.exports = removeFromArray;
+module.exports = removeFromArray;
