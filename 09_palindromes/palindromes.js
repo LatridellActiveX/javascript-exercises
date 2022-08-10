@@ -7,6 +7,7 @@ const palindromes = function (a) {
     var temp;
     var similarity = false;
 
+    //test comment please ignore
     //remove punctuation
     do{
         
