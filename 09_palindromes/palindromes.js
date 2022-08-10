@@ -1,35 +1,33 @@
 const palindromes = function (a) {
-
-    console.log("Original: "  + a);
     let str = a.toLowerCase();
     let charray = str.split('');
+    var charray2 = new Array(0);
     let arlength = charray.length;
     let pfound = true;
     var temp;
-    
+    var similarity = false;
 
     //remove punctuation
     do{
         
         for(let i = 0; i <= charray.length - 1; i++){
-            console.log("Made it to for statement");
-            console.log(charray);
             switch(charray[i]){
                 case ",":
-                    console.log(", found");
                     pfound = true;
                     temp = charray.splice(i, 1);
                     break;
                 case".":
-                    console.log(". found");
                     pfound = true;
                     temp = charray.splice(i, 1);
                     break;
                 case "!":
-                    console.log("! found");
                     pfound = true;
                     temp = charray.splice(i, 1);
                     break;
+                    case " ":
+                        pfound = true;
+                        temp = charray.splice(i, 1);
+                        break;
                 default:
                     if(i == charray.length - 1){
                         pfound = false;
@@ -41,13 +39,28 @@ const palindromes = function (a) {
 
     }while(pfound);
 
-    console.log("filtered: " + charray);
+    //now to reflect the array and then check if its a palindrome. 
+    for(let k = charray.length-1; k >= 0; k--){
+        charray2.push(charray[k]);
+    }
 
-    return true;
+    
+    if(charray.length == charray2.length){
+        for(let j = charray.length-1; j >= 0; j--){
+            if(charray[j] == charray2[j]){
+                similarity = true;
+                
+            }else{
+                
+                return false;
+                
+            }
+        }
+    }else{
+        similarity =  false;
+    }
+    return similarity;
 };
-
-let test = palindromes("Ra.cec.ar!");
-
 
 
 
